@@ -85,10 +85,6 @@ Checkout our [releases](https://github.com/peta-express/cloud-sdk-java/releases)
 - [PetaExpress Documentation Overview](https://docs.petaexpress.com)
 - [PetaExpress IaaS APIs](https://docs.petaexpress.com/product/api/)
 
-## Contributing
-
-This repository was automatically generated, please contribute to [`Snips`](https://github.com/peta-express/snips) instead.
-
 ## LICENSE
 
 The Apache License (Version 2.0, January 2004).
