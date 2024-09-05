@@ -1,0 +1,9 @@
+{
+  "zone": {
+    "name": "zone",
+    "description": "PetaExpress Zone ID",
+    "type": "string",
+    "required": true,
+    "in": "query"
+  }
+}

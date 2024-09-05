@@ -1,0 +1,1450 @@
+{
+  "DescribeRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DescribeRouters",
+      "summary": "DescribeRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/describe_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "status": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "active",
+                    "poweroffed",
+                    "suspended",
+                    "deleted",
+                    "ceased"
+                  ]
+                }
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "verbose": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "owner": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "router_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "CreateRouters",
+      "summary": "CreateRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/create_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_name": {
+                "type": "string"
+              },
+              "router_type": {
+                "type": "integer",
+                "default": 1,
+                "enum": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "vpc_network": {
+                "type": "string"
+              },
+              "count": {
+                "type": "integer",
+                "default": 1
+              },
+              "security_group": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DeleteRouters",
+      "summary": "DeleteRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/delete_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "routers"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "UpdateRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "UpdateRouters",
+      "summary": "UpdateRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/update_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "routers"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "PowerOffRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "PowerOffRouters",
+      "summary": "PowerOffRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/poweroff_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "routers"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "PowerOnRouters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "PowerOnRouters",
+      "summary": "PowerOnRouters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/poweron_routers.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "routers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "routers"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "JoinRouter": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "JoinRouter",
+      "summary": "JoinRouter",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/join_router.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "vxnet": {
+                "type": "string"
+              },
+              "router": {
+                "type": "string"
+              },
+              "ip_network": {
+                "type": "string"
+              },
+              "features": {
+                "type": "integer",
+                "default": 1,
+                "enum": [
+                  1
+                ]
+              },
+              "manager_ip": {
+                "type": "string"
+              },
+              "dyn_ip_start": {
+                "type": "string"
+              },
+              "dyn_ip_end": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "vxnet",
+              "router",
+              "ip_network"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "vxnet_id": {
+                "type": "string"
+              },
+              "router_id": {
+                "type": "string"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "LeaveRouter": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "LeaveRouter",
+      "summary": "LeaveRouter",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/leave_router.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "vxnets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "router": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "vxnets",
+              "router"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "vxnets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "router_id": {
+                "type": "string"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyRouterAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "ModifyRouterAttributes",
+      "summary": "ModifyRouterAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/modify_router_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router": {
+                "type": "string"
+              },
+              "eip": {
+                "type": "string"
+              },
+              "security_group": {
+                "type": "string"
+              },
+              "router_name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "features": {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2
+                ]
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "dyn_ip_start": {
+                "type": "string"
+              },
+              "dyn_ip_end": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "router"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeRouterStatics": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DescribeRouterStatics",
+      "summary": "DescribeRouterStatics",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/describe_router_statics.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_statics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "router": {
+                "type": "string"
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "static_type": {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ]
+              },
+              "verbose": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "owner": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 20
+              }
+            },
+            "required": [
+              "router"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "router_static_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router_static"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AddRouterStatics": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "AddRouterStatics",
+      "summary": "AddRouterStatics",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/add_router_statics.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router": {
+                "type": "string"
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "statics": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router_static"
+                }
+              }
+            },
+            "required": [
+              "router",
+              "statics"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_statics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "GetVPNCerts": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get":{
+      "tags": [
+        "Router"
+      ],
+      "operationId": "GetVPNCerts",
+      "summary": "GetVPNCerts",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/get_vpn_certs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string",
+                "enum": [
+                  "windows", 
+                  "linux", 
+                  "mac"
+                ]
+              }
+            },
+            "required": [
+              "router"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_id": {
+                "type": "string"
+              },
+              "ca_cert": {
+                "type": "string"
+              },
+              "windows_conf_sample": {
+                "type": "string"
+              },
+              "mac_conf_sample": {
+                "type": "string"
+              },
+              "linux_conf_sample": {
+                "type": "string"
+              },
+              "static_key": {
+                "type": "string"
+              },
+              "client_crt": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string",
+                "enum": [
+                  "linux",
+                  "windows",
+                  "mac"
+                ]
+              },
+              "client_key": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyRouterStaticAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "ModifyRouterStaticAttributes",
+      "summary": "ModifyRouterStaticAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/modify_router_static_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_static": {
+                "type": "string"
+              },
+              "router_static_name": {
+                "type": "string"
+              },
+              "val1": {
+                "type": "string"
+              },
+              "val2": {
+                "type": "string"
+              },
+              "val3": {
+                "type": "string"
+              },
+              "val4": {
+                "type": "string"
+              },
+              "val5": {
+                "type": "string"
+              },
+              "val6": {
+                "type": "string"
+              },
+              "val7": {
+                "type": "string"
+              },
+              "val8": {
+                "type": "string"
+              },
+              "val9": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "router_static"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_static_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteRouterStatics": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DeleteRouterStatics",
+      "summary": "DeleteRouterStatics",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/delete_router_statics.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_statics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "router_statics"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_statics": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeRouterVxnets": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DescribeRouterVxnets",
+      "summary": "DescribeRouterVxnets",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/describe_router_vxnets.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router": {
+                "type": "string"
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "verbose": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 20
+              }
+            },
+            "required": [
+              "router"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "router_vxnet_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router_vxnet"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AddRouterStaticEntries": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "AddRouterStaticEntries",
+      "summary": "AddRouterStaticEntries",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/add_router_static_entries.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_static": {
+                "type": "string"
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router_static_entry"
+                }
+              }
+            },
+            "required": [
+              "router_static"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_static_entries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteRouterStaticEntries": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DeleteRouterStaticEntries",
+      "summary": "DeleteRouterStaticEntries",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/delete_router_static_entries.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_static_entries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "router_static_entries"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_static_entries": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyRouterStaticEntryAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "ModifyRouterStaticEntryAttributes",
+      "summary": "ModifyRouterStaticEntryAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/modify_router_static_entry_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_static_entry": {
+                "type": "string"
+              },
+              "router_static_entry_name": {
+                "type": "string"
+              },
+              "val1": {
+                "type": "string"
+              },
+              "val2": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "router_static_entry"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "router_static_entry": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeRouterStaticEntries": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "DescribeRouterStaticEntries",
+      "summary": "DescribeRouterStaticEntries",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/router/describe_router_static_entries.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "router_static_entries": {
+                "type": "string"
+              },
+              "router_static": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "router_static_entry_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/router_static_entry"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "GetRouterMonitor": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Router"
+      ],
+      "operationId": "GetRouterMonitor",
+      "summary": "GetMonitor",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/monitor/get_monitor.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resource": {
+                "type": "string"
+              },
+              "meters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "step": {
+                "type": "string",
+                "enum": [
+                  "5m",
+                  "15m",
+                  "2h",
+                  "1d"
+                ]
+              },
+              "start_time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end_time": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "resource",
+              "meters",
+              "step",
+              "start_time",
+              "end_time"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "resource_id": {
+                "type": "string"
+              },
+              "meter_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/meter"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

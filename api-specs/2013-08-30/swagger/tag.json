@@ -1,0 +1,357 @@
+{
+  "DescribeTags": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "DescribeTags",
+      "summary": "DescribeTags",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/describe_tags.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "verbose": {
+                "type": "integer",
+                "default": 0,
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 0
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "tag_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/tag"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateTag": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "CreateTag",
+      "summary": "CreateTag",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/create_tag.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "color": {
+                "type": "string"
+              },
+              "tag_name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "tag_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteTags": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "DeleteTags",
+      "summary": "DeleteTags",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/delete_tags.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "tags"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyTagAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "ModifyTagAttributes",
+      "summary": "ModifyTagAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/modify_tag_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "tag_name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tag"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AttachTags": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "AttachTags",
+      "summary": "AttachTags",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/attach_tags.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resource_tag_pairs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/resource_tag_pair"
+                }
+              }
+            },
+            "required": [
+              "resource_tag_pairs"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DetachTags": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Tag"
+      ],
+      "operationId": "DetachTags",
+      "summary": "DetachTags",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/tag/detach_tags.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resource_tag_pairs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/resource_tag_pair"
+                }
+              }
+            },
+            "required": [
+              "resource_tag_pairs"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

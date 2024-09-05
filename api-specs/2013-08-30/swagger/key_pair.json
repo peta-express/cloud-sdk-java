@@ -1,0 +1,408 @@
+{
+  "DescribeKeyPairs": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "DescribeKeyPairs",
+      "summary": "DescribeKeyPairs",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/describe_key_pairs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypairs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "instance_id": {
+                "type": "string"
+              },
+              "encrypt_method": {
+                "type": "string",
+                "enum": [
+                  "ssh-rsa",
+                  "ssh-dss"
+                ]
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "verbose": {
+                "type": "integer",
+                "default": 0
+              },
+              "owner": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 20
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "keypair_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/keypair"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateKeyPair": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "CreateKeyPair",
+      "summary": "CreateKeyPair",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/create_key_pairs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypair_name": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string",
+                "default": "system",
+                "enum": [
+                  "system",
+                  "user"
+                ]
+              },
+              "encrypt_method": {
+                "type": "string",
+                "default": "ssh-rsa",
+                "enum": [
+                  "ssh-rsa",
+                  "ssh-dss"
+                ]
+              },
+              "public_key": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "private_key": {
+                "type": "string"
+              },
+              "keypair_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteKeyPairs": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "DeleteKeyPairs",
+      "summary": "DeleteKeyPairs",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/delete_key_pairs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypairs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "keypairs"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "keypairs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AttachKeyPairs": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "AttachKeyPairs",
+      "summary": "AttachKeyPairs",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/attach_key_pairs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypairs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "instances": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "keypairs",
+              "instances"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DetachKeyPairs": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "DetachKeyPairs",
+      "summary": "DetachKeyPairs",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/detach_key_pairs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypairs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "instances": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "keypairs",
+              "instances"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyKeyPairAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Keypair"
+      ],
+      "operationId": "ModifyKeyPairAttributes",
+      "summary": "ModifyKeyPairAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/keypair/modify_key_pair_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "keypair": {
+                "type": "string"
+              },
+              "keypair_name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keypair"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

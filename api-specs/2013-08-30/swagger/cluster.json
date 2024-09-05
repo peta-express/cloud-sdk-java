@@ -1,0 +1,1794 @@
+{
+  "CreateCluster": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "CreateCluster",
+      "summary": "CreateCluster",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/create_cluster.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "conf": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conf"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "app_id": {
+                "type": "string"
+              },
+              "app_version": {
+                "type": "string"
+              },
+              "cluster_name": {
+                "type": "string"
+              },
+              "vxnet_id": {
+                "type": "string"
+              },
+              "node_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DescribeClusters",
+      "summary": "DescribeClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/describe_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "cfgmgmt"
+                ]
+              },
+              "role": {
+                "type": "string"
+              },
+              "apps": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "app_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "link": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "transition_status": {
+                "type": "string"
+              },
+              "console": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "sort_key": {
+                "type": "string"
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "cfgmgmt_id": {
+                "type": "string"
+              },
+              "external_cluster_id": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "verbose": {
+                "type": "integer"
+              },
+              "reverse": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count": {
+                "type": "integer"
+              },
+              "cluster_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/cluster"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeClusterNodes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DescribeClusterNodes",
+      "summary": "DescribeClusterNodes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/describe_cluster_nodes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "role": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "console": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "string"
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "sort_key": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              },
+              "offset": {
+                "type": "integer"
+              },
+              "verbose": {
+                "type": "integer"
+              },
+              "reverse": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "total_count" : {
+                "type": "integer"
+              },
+              "node_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/cluster_node"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "StopClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "StopClusters",
+      "summary": "StopClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/stop_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "force": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "clusters"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_ids": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "StartClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "StartClusters",
+      "summary": "StartClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/start_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "clusters"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_ids": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DeleteClusters",
+      "summary": "DeleteClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/delete_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "force": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "clusters"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_ids": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "RecoverClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "RecoverClusters",
+      "summary": "Lease",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/recover_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CeaseClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "CeaseClusters",
+      "summary": "CeaseClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/cease_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "clusters"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_ids": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AddClusterNodes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "AddClusterNodes",
+      "summary": "AddClusterNodes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/add_cluster_nodes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "node_count": {
+                "type": "integer"
+              },
+              "node_role": {
+                "type": "string"
+              },
+              "node_name": {
+                "type": "string"
+              },
+              "private_ips": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "resource_conf": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster",
+              "node_count"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "new_node_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteClusterNodes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DeleteClusterNodes",
+      "summary": "DeleteClusterNodes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/delete_cluster_nodes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "force": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cluster",
+              "nodes"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "deleted_node_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ResizeCluster": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "ResizeCluster",
+      "summary": "ResizeCluster",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/resize_cluster.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "node_role": {
+                "type": "string"
+              },
+              "cpu": {
+                "type": "integer"
+              },
+              "gpu": {
+                "type": "integer"
+              },
+              "memory": {
+                "type": "integer"
+              },
+              "storage_size": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cluster"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "cpu": {
+                "type": "integer"
+              },
+              "gpu": {
+                "type": "integer"
+              },
+              "memory": {
+                "type": "integer"
+              },
+              "storage_size": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ChangeClusterVxnet": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "ChangeClusterVxnet",
+      "summary": "ChangeClusterVxnet",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/change_cluster_vxnet.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "vxnet": {
+                "type": "string"
+              },
+              "private_ips": {
+                "type": "object"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "cluster",
+              "vxnet"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "vxnet_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "UpdateClusterEnvironment": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "UpdateClusterEnvironment",
+      "summary": "UpdateClusterEnvironment",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/update_cluster_environment.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "env": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyClusterAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "ModifyClusterAttributes",
+      "summary": "ModifyClusterAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/modify_cluster_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "auto_backup_time": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cluster"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifyClusterNodeAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "ModifyClusterNodeAttributes",
+      "summary": "ModifyClusterNodeAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/modify_cluster_node_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster_node": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster_node"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeClusterUsers": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DescribeClusterUsers",
+      "summary": "DescribeClusterUsers",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/describe_cluster_users.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "zones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "apps": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "app_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cluster_status": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 20
+              }
+            },
+            "required": [
+              "apps",
+              "zones"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "apps": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "users": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "GetClusterMonitor": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "GetClusterMonitor",
+      "summary": "GetClusterMonitor",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/get_cluster_monitor.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resource": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "app_id": {
+                "type": "string"
+              },
+              "app_version": {
+                "type": "string"
+              },
+              "app_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "meters": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "traffic",
+                    "stats"
+                  ]
+                }
+              },
+              "step": {
+                "type": "string",
+                "enum": [
+                  "10s",
+                  "5m",
+                  "15m",
+                  "2h",
+                  "1d"
+                ]
+              },
+              "start_time": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "end_time": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "resource",
+              "meters",
+              "step",
+              "start_time",
+              "end_time"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "resource_id": {
+                "type": "string"
+              },
+              "meter_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/meter"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "RestartClusterService": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "RestartClusterService",
+      "summary": "RestartClusterService",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/restart_cluster_service.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "RunClusterCustomService": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "RunClusterCustomService",
+      "summary": "RunClusterCustomService",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/run_cluster_custom_service.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "service_params": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster",
+              "service"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "AssociateEipToClusterNode": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "AssociateEipToClusterNode",
+      "summary": "AssociateEipToClusterNode",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/associate_eip_to_cluster_node.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster_node": {
+                "type": "string"
+              },
+              "eip": {
+                "type": "string"
+              },
+              "nic": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster_node",
+              "eip"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DissociateEipFromClusterNode": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DissociateEipFromClusterNode",
+      "summary": "DissociateEipFromClusterNode",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/dissociate_eip_from_cluster_node.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "eips": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "eips"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DescribeClusterDisplayTabs": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "DescribeClusterDisplayTabs",
+      "summary": "DescribeClusterDisplayTabs",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/describe_cluster_display_tabs.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "display_tabs": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster",
+              "display_tabs"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "display_tabs": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "UpgradeClusters": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "UpgradeClusters",
+      "summary": "UpgradeClusters",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/upgrade_clusters.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "clusters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "app_version": {
+                "type": "string"
+              },
+              "service_params": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateClusterFromSnapshot": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "CreateClusterFromSnapshot",
+      "summary": "CreateClusterFromSnapshot",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/create_cluster_from_snapshot.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "conf": {
+                "type": "string"
+              },
+              "snapshot_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conf",
+              "snapshot_id"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "app_id": {
+                "type": "string"
+              },
+              "app_version": {
+                "type": "string"
+              },
+              "cluster_name": {
+                "type": "string"
+              },
+              "vxnet_id": {
+                "type": "string"
+              },
+              "node_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "RestoreClusterFromSnapshot": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Cluster"
+      ],
+      "operationId": "RestoreClusterFromSnapshot",
+      "summary": "RestoreClusterFromSnapshot",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/cluster/restore_cluster_from_snapshot.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "cluster": {
+                "type": "string"
+              },
+              "snapshot": {
+                "type": "string"
+              },
+              "service_params": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cluster",
+              "snapshot"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "cluster_id": {
+                "type": "string"
+              },
+              "snapshot_id": {
+                "type": "string"
+              },
+              "service_params": {
+                "type": "string"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

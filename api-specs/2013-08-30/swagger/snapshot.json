@@ -1,0 +1,476 @@
+{
+  "DescribeSnapshots": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "DescribeSnapshots",
+      "summary": "DescribeSnapshots",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/describe_snapshots.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "resource_id": {
+                "type": "string"
+              },
+              "snapshot_type": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "snapshot_time": {
+                "type": "string"
+              },
+              "status": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "pending",
+                    "available",
+                    "suspended",
+                    "deleted",
+                    "ceased"
+                  ]
+                }
+              },
+              "search_word": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "verbose": {
+                "type": "integer",
+                "default": 0,
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "owner": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer",
+                "default": 0
+              },
+              "limit": {
+                "type": "integer",
+                "default": 20
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "snapshot_set": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/snapshot"
+                }
+              },
+              "total_count": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateSnapshots": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "CreateSnapshots",
+      "summary": "CreateSnapshots",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/create_snapshots.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "resources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "snapshot_name": {
+                "type": "string"
+              },
+              "service_params": {
+                "type": "string"
+              },
+              "is_full": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1
+                ]
+              }
+            },
+            "required": [
+              "resources"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "snapshots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteSnapshots": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "DeleteSnapshots",
+      "summary": "DeleteSnapshots",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/delete_snapshots.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "snapshots"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ApplySnapshots": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "ApplySnapshots",
+      "summary": "ApplySnapshots",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/apply_snapshots.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "snapshots"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "ModifySnapshotAttributes": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "ModifySnapshotAttributes",
+      "summary": "ModifySnapshotAttributes",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/modify_snapshot_attributes.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshot": {
+                "type": "string"
+              },
+              "snapshot_name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "snapshot"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CaptureInstanceFromSnapshot": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "CaptureInstanceFromSnapshot",
+      "summary": "CaptureInstanceFromSnapshot",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/capture_instance_from_snapshot.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshot": {
+                "type": "string"
+              },
+              "image_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "snapshot"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "image_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CreateVolumeFromSnapshot": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "get": {
+      "tags": [
+        "Snapshot"
+      ],
+      "operationId": "CreateVolumeFromSnapshot",
+      "summary": "CreateVolumeFromSnapshot",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/snapshot/create_volume_from_snapshot.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "snapshot": {
+                "type": "string"
+              },
+              "volume_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "snapshot"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "job_id": {
+                "type": "string"
+              },
+              "volume_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "UploadUserDataAttachment": {
+    "parameters": [
+      {
+        "$ref": "#/parameters/zone"
+      }
+    ],
+    "post": {
+      "tags": [
+        "User Data"
+      ],
+      "operationId": "UploadUserDataAttachment",
+      "summary": "UploadUserDataAttachment",
+      "externalDocs": {
+        "url": "https://docs.petaexpress.com/api/userdata/upload_userdata_attachment.html"
+      },
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "attachment_content": {
+                "type": "string"
+              },
+              "attachment_name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "attachment_content"
+            ]
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "ret_code": {
+                "type": "integer"
+              },
+              "attachment_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
